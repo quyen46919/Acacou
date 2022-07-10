@@ -13,7 +13,7 @@ export function useAuth(options?: Partial<PublicConfiguration>) {
     ...options,
   })
 
-  console.log({ profile, error })
+  // console.log({ profile, error })
   const firstLoading = profile === undefined && error === undefined
 
   async function login() {

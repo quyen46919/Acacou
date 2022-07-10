@@ -1,14 +1,17 @@
 import { useAuth } from '@/hooks'
 import { NextPageWithLayout } from '@/models'
-import { AdminLayout } from '../components/layout'
+import { AdminLayout } from '@/components/layout'
+import { Box, Typography } from '@mui/material'
 
 const AboutPage: NextPageWithLayout = () => {
   // const { profile } = useAuth()
   return (
-    <div>
-      <h1>About page</h1>
+    <Box>
+      <Typography component="h1" variant="h3" color="primary.main">
+        About page
+      </Typography>
       {/* <p>{JSON.stringify(profile)}</p> */}
-    </div>
+    </Box>
   )
 }
 
