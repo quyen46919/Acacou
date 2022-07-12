@@ -71,7 +71,7 @@ const Home: NextPageWithLayout = () => {
         }}
       >
         <Stack
-          width={{ xs: '100%', md: 500 }}
+          width={{ xs: '100%', sm: 400, lg: 500 }}
           gap="10px"
           p={{ xs: '20px', md: '0px 0px 0px 100px' }}
         >
@@ -184,9 +184,9 @@ const Home: NextPageWithLayout = () => {
         <Typography fontSize={24} px="40px">
           Topics recommended for you
         </Typography>
-        <Grid container spacing={1} width="100%" p="20px 40px" m={0}>
+        <Grid container spacing={1} width="100%" p={{ xs: '20px', sm: '20px 40px' }} m={0}>
           {programmingLanguages.map((language) => (
-            <Grid item key={language.id} xs={12} sm={6} md={4} lg={3} xl={2}>
+            <Grid item key={language.id} xs={6} sm={4} md={3} lg={3} xl={2}>
               <Button
                 variant="outlined"
                 sx={{

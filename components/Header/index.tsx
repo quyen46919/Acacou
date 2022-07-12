@@ -1,13 +1,13 @@
 import {
   AccountCircle,
   BusinessCenter,
-  Inbox,
   Login,
   Logout,
-  Mail,
+  School,
   Search,
   ShoppingCart,
 } from '@mui/icons-material'
+import MenuIcon from '@mui/icons-material/Menu'
 import {
   Box,
   Button,
@@ -19,9 +19,6 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
-  Menu,
-  MenuItem,
   Stack,
   TextField,
   Tooltip,
@@ -30,7 +27,8 @@ import {
 } from '@mui/material'
 import { useTheme } from '@mui/system'
 import { useState } from 'react'
-import MenuIcon from '@mui/icons-material/Menu'
+import Category from '../Category'
+import CategoryMenu from '../CategoryMenu'
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
@@ -39,11 +37,22 @@ export default function Header() {
   const belowXl = useMediaQuery(theme.breakpoints.down('xl'))
   const belowMd = useMediaQuery(theme.breakpoints.down('md'))
   const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
+  const belowLg = useMediaQuery(theme.breakpoints.down('lg'))
 
-  const [openDrawer, setOpenDrawer] = useState(false)
+  const [openLeftDrawer, setOpenLeftDrawer] = useState(false)
+  const [openRightDrawer, setOpenRightDrawer] = useState(false)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   const toggleDrawer =
-    (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    (open: boolean, anchor: string = 'left') =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event.type === 'keydown' &&
         ((event as React.KeyboardEvent).key === 'Tab' ||
@@ -52,55 +61,13 @@ export default function Header() {
         return
       }
 
-      setOpenDrawer(open)
+      if (anchor === 'left') {
+        setOpenLeftDrawer(open)
+      } else {
+        setOpenRightDrawer(open)
+      }
     }
 
-  const list = (anchor: Anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        <ListItem>
-          <Typography width={180} fontWeight={800} fontSize={24} color="error.main">
-            ACACOU 2022
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <TextField size="small" placeholder="Input keyword" />
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <Login />
-            </ListItemIcon>
-            <ListItemText primary="Login" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <Logout />
-            </ListItemIcon>
-            <ListItemText primary="Signup" />
-          </ListItemButton>
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        {['For Enterpise', 'Teach on OnEdu', 'Your cart'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <Inbox /> : <Mail />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  )
   return (
     <Stack
       flexDirection="row"
@@ -118,16 +85,23 @@ export default function Header() {
         justifyContent="space-between"
         alignItems="center"
       >
-        {belowXl && (
-          <IconButton onClick={toggleDrawer('left', true)}>
+        {belowLg && (
+          <IconButton onClick={toggleDrawer(true)}>
             <MenuIcon />
           </IconButton>
         )}
         <Typography width={180} fontWeight={800} fontSize={24} color="error.main">
           ACACOU 2022
         </Typography>
-        {!belowXl && <Typography color="secondary.main">Categories</Typography>}
-        {!belowXl && (
+        {!belowLg && (
+          <CategoryMenu
+            handleClose={handleClose}
+            handleClick={handleClick}
+            anchorEl={anchorEl}
+            open={open}
+          />
+        )}
+        {!belowLg && (
           <TextField
             variant="outlined"
             placeholder="Input keyword"
@@ -208,19 +182,102 @@ export default function Header() {
             </IconButton>
           </Box>
           <Tooltip title="user">
-            <IconButton onClick={toggleDrawer('left', true)}>
+            <IconButton onClick={toggleDrawer(true, 'right')}>
               <AccountCircle />
             </IconButton>
           </Tooltip>
         </Stack>
       )}
+
       <Drawer
         anchor="left"
-        open={openDrawer}
-        onClose={toggleDrawer('left', false)}
+        open={openLeftDrawer}
+        onClose={toggleDrawer(false)}
         sx={{ width: '100%' }}
+        disableEnforceFocus
       >
-        {list('left')}
+        <Box
+          sx={{ width: 300 }}
+          role="presentation"
+          onClick={toggleDrawer(true)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+            <ListItem>
+              <Typography width={180} fontWeight={800} fontSize={24} color="error.main">
+                ACACOU 2022
+              </Typography>
+            </ListItem>
+            <ListItem>
+              <TextField fullWidth size="small" placeholder="Input keyword" />
+            </ListItem>
+          </List>
+          <Divider />
+          <List>
+            <Category />
+          </List>
+        </Box>
+      </Drawer>
+
+      <Drawer
+        anchor="right"
+        open={openRightDrawer}
+        onClose={toggleDrawer(false, 'right')}
+        sx={{ width: '100%' }}
+        disableEnforceFocus
+      >
+        <Box
+          sx={{ width: 300 }}
+          role="presentation"
+          onClick={toggleDrawer(true)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <ListItem>
+            <Typography width={180} fontWeight={800} fontSize={24} color="error.main">
+              ACACOU 2022
+            </Typography>
+          </ListItem>
+          {belowMd && (
+            <List>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Login />
+                </ListItemIcon>
+                Login
+              </ListItemButton>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Logout />
+                </ListItemIcon>
+                Logout
+              </ListItemButton>
+            </List>
+          )}
+          <Divider />
+          <List>
+            <ListItemButton>
+              <ListItemIcon>
+                <ShoppingCart />
+              </ListItemIcon>
+              Cart
+            </ListItemButton>
+          </List>
+          <Divider />
+          <List>
+            <ListItemButton>
+              <ListItemIcon>
+                <School />
+              </ListItemIcon>
+              Teach on Acacou
+            </ListItemButton>
+            <ListItemButton>
+              <ListItemIcon>
+                <BusinessCenter />
+              </ListItemIcon>
+              For enterpise
+            </ListItemButton>
+          </List>
+        </Box>
       </Drawer>
     </Stack>
   )
