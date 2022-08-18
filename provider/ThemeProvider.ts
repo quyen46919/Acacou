@@ -1,3 +1,4 @@
+import { InputAdornment } from '@mui/material'
 import { blue } from '@mui/material/colors'
 import { createTheme } from '@mui/material/styles'
 
@@ -150,7 +151,23 @@ const theme = createTheme({
             },
           },
         },
+        {
+          props: { InputProps: { startAdornment: InputAdornment as any } },
+          style: {},
+        },
       ],
+      styleOverrides: {
+        root: {
+          '& svg': {
+            color: '#cacbcc',
+          },
+          '& .MuiInputBase-adornedStart': {
+            '& .MuiOutlinedInput-input': {
+              padding: '14px 14px 14px 0px',
+            },
+          },
+        },
+      },
     },
     MuiTab: {
       styleOverrides: {

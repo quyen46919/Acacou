@@ -1,123 +1,101 @@
+import { Email, Lock, Person } from '@mui/icons-material'
 import {
-  Box,
   Button,
+  Card,
+  CardContent,
   Checkbox,
   FormControlLabel,
+  InputAdornment,
   Stack,
   TextField,
   Typography,
 } from '@mui/material'
-import React from 'react'
+import { blue, grey } from '@mui/material/colors'
+import Link from 'next/link'
+import image from 'public/images/lec1.jpg'
 
 export default function Logup() {
   return (
-    <Box bgcolor="#F0F0F0" minHeight="100vh" overflow="hidden">
-      <Stack
-        flexDirection={{ xs: 'column', md: 'row' }}
-        width={{ xs: '100%', md: '80%' }}
-        m="0 auto"
-        p={{ xs: '30px', md: '30px 0px' }}
-        gap="30px"
-      >
-        <Stack width={{ xs: '100%', md: '50%' }} gap="30px">
-          <Typography variant="h2">Get Your Demo</Typography>
-          <Typography variant="h3" fontSize="25px">
-            See why leading organizations choose OnEdu for Business as their destination for
-            employee learning
-          </Typography>
-          <Stack borderLeft="5px solid #B82B2B" pl="20px" color="black.main">
-            <Typography
-              variant="h3"
-              fontWeight="bold"
-              fontSize="21px"
-              component="ul"
-              pl="0px"
-              sx={{ listStyleType: 'disc' }}
-            >
-              In your demo, learn more about:
-            </Typography>
-            <Typography component="li" p="10px" fontSize="15px">
-              Unlimit access to the top 3,500+ course selected from Udemy.com - anytime, on any
-              device
-            </Typography>
-            <Typography component="li" p="10px" fontSize="15px">
-              Unlimit access to the top 3,500+ course selected from Udemy.com - anytime, on any
-              device
-            </Typography>
-            <Typography component="li" p="10px" fontSize="15px">
-              Unlimit access to the top 3,500+ course selected from Udemy.com - anytime, on any
-              device
-            </Typography>
-          </Stack>
-        </Stack>
-        <Stack width={{ xs: '100%', md: '50%' }}>
-          <Typography fontSize="40px" fontWeight="bold" mb="20px">
+    <Stack
+      sx={{
+        width: '100%',
+        height: '100vh',
+        backgroundImage: `${image.src}`,
+        backgroundSize: 'cover',
+        backgroundColor: 'greyDefault.main',
+      }}
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Card sx={{ width: { xs: '90%', sm: 470 } }}>
+        <Typography p="20px 30px" fontWeight="bold" borderBottom={`1px solid ${grey[200]}`}>
+          Sign Up and Start Learning!
+        </Typography>
+        <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '15px', p: '30px' }}>
+          <TextField
+            placeholder="Fullname"
+            color="info"
+            size="medium"
+            spellCheck="false"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Person />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <TextField
+            placeholder="Email"
+            color="info"
+            size="medium"
+            spellCheck="false"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <TextField
+            placeholder="Password"
+            color="info"
+            size="medium"
+            spellCheck="false"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Lock />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <FormControlLabel
+            color="info"
+            control={<Checkbox color="info" />}
+            sx={{ '& span': { fontSize: 14 } }}
+            label="Yes! I want to get the most out of OnEdu by receiving emails with exclusive deals, personal recommendations and learning tips!"
+            labelPlacement="end"
+          />
+          <Button variant="contained" color="error" sx={{ height: 55, fontSize: '18px' }}>
             Sign up
+          </Button>
+          <Typography fontSize="14px" sx={{ '& a': { color: blue[600] } }}>
+            By signing up, you agree to our <Link href="#">Terms of Use</Link> and{' '}
+            <Link href="#">Privacy Policy</Link>
           </Typography>
-          <Stack gap="10px">
-            <Stack flexDirection={{ xs: 'column', sm: 'row' }} gap="10px">
-              <TextField
-                fullWidth
-                color="info"
-                variant="outlined"
-                size="medium"
-                placeholder="First name*"
-              />
-              <TextField
-                fullWidth
-                color="info"
-                variant="outlined"
-                size="medium"
-                placeholder="Last name*"
-              />
-            </Stack>
-            <TextField
-              fullWidth
-              color="info"
-              variant="outlined"
-              size="medium"
-              placeholder="Work email*"
-            />
-            <TextField
-              fullWidth
-              color="info"
-              variant="outlined"
-              size="medium"
-              placeholder="Job title*"
-            />
-            <TextField
-              fullWidth
-              color="info"
-              variant="outlined"
-              size="medium"
-              placeholder="Company name*"
-            />
-            <TextField
-              fullWidth
-              color="info"
-              variant="outlined"
-              size="medium"
-              placeholder="Phone number*"
-            />
-            <TextField
-              fullWidth
-              color="info"
-              variant="outlined"
-              size="medium"
-              placeholder="What are your training need?*"
-            />
-            <FormControlLabel
-              color="info"
-              control={<Checkbox color="info" />}
-              label="I'd like to recive news, insights, and promotions form Acacou for Business"
-              labelPlacement="end"
-            />
-            <Button fullWidth variant="contained" color="error">
-              Get in touch
-            </Button>
-          </Stack>
-        </Stack>
-      </Stack>
-    </Box>
+
+          <Typography
+            textAlign="center"
+            pt="20px"
+            borderTop={`1px solid ${grey[200]}`}
+            sx={{ '& a': { color: blue[600] } }}
+          >
+            Already have an account? <Link href="/login">Log In</Link>
+          </Typography>
+        </CardContent>
+      </Card>
+    </Stack>
   )
 }
