@@ -83,7 +83,7 @@ const Home: NextPageWithLayout = () => {
           </Typography>
           <TextField
             variant="outlined"
-            color="white"
+            color="info"
             spellCheck="false"
             InputProps={{
               endAdornment: (

@@ -29,12 +29,27 @@ const theme = createTheme({
     },
   },
   typography: {
-    h1: {
-      fontSize: '50px',
+    // h1: {
+    //   fontSize: 50,
+    //   fontWeight: 700,
+    //   textTransform: 'capitalize',
+    // },
+    h2: {
+      fontSize: 50,
       fontWeight: 700,
-      textTransform: 'capitalize',
-      lineHeight: 1.2,
     },
+    h3: {
+      fontWeight: 500,
+    },
+    // h3: {
+    //   fontSize: 30,
+    //   fontWeight: 500,
+    //   textTransform: 'capitalize',
+    // },
+    // h4: {
+    //   fontSize: '22px',
+    //   fontWeight: 700,
+    // },
   },
   components: {
     MuiButton: {
@@ -112,13 +127,26 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: 'outlined', color: 'white' },
+          props: { variant: 'outlined', color: 'info' },
           style: {
+            border: 'inherit',
             '& > div': {
               backgroundColor: '#fff',
             },
             '& .MuiOutlinedInput-input': {
               padding: '10px 8px 10px 15px',
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined', color: 'info', size: 'medium' },
+          style: {
+            border: 'inherit',
+            '& > div': {
+              backgroundColor: '#fff',
+            },
+            '& .MuiOutlinedInput-input': {
+              padding: '14px 20px',
             },
           },
         },
