@@ -28,6 +28,14 @@ const theme = createTheme({
       main: '#f2f3f5',
     },
   },
+  typography: {
+    h1: {
+      fontSize: '50px',
+      fontWeight: 700,
+      textTransform: 'capitalize',
+      lineHeight: 1.2,
+    },
+  },
   components: {
     MuiButton: {
       variants: [
@@ -68,13 +76,6 @@ const theme = createTheme({
         },
       ],
     },
-    // MuiBackdrop: {
-    //   styleOverrides: {
-    //     root: {
-    //       backgroundColor: 'rgba(16, 16, 16, 0.2)',
-    //     },
-    //   },
-    // },
     MuiTypography: {
       styleOverrides: {
         root: {

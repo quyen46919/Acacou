@@ -27,7 +27,7 @@ import {
 } from '@mui/material'
 import { useTheme } from '@mui/system'
 import { useState } from 'react'
-import Category from '../Category'
+import CategoryDropdown from '../CategoryDropdown'
 import CategoryMenu from '../CategoryMenu'
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
@@ -214,7 +214,7 @@ export default function Header() {
           </List>
           <Divider />
           <List>
-            <Category />
+            <CategoryDropdown />
           </List>
         </Box>
       </Drawer>
