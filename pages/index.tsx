@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 const CourseCard = dynamic(() => import('@/components/CourseCard'), { ssr: false })
 import Header from '@/components/Header'
 import { NextPageWithLayout } from '@/models/common'
-import { courseCard, homepageContent, programmingLanguages } from '@/seedData'
+import { homepageContent, programmingLanguages } from '@/seedData'
 import { Search } from '@mui/icons-material'
 import {
   Box,
@@ -83,7 +83,7 @@ const Home: NextPageWithLayout = () => {
           </Typography>
           <TextField
             variant="outlined"
-            color="info"
+            color="white"
             spellCheck="false"
             InputProps={{
               endAdornment: (

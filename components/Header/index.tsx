@@ -26,6 +26,7 @@ import {
   useMediaQuery,
 } from '@mui/material'
 import { useTheme } from '@mui/system'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import CategoryDropdown from '../CategoryDropdown'
 import CategoryMenu from '../CategoryMenu'
@@ -33,6 +34,7 @@ import CategoryMenu from '../CategoryMenu'
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
 export default function Header() {
+  const router = useRouter()
   const theme = useTheme()
   const belowXl = useMediaQuery(theme.breakpoints.down('xl'))
   const belowMd = useMediaQuery(theme.breakpoints.down('md'))
@@ -93,14 +95,7 @@ export default function Header() {
         <Typography width={180} fontWeight={800} fontSize={24} color="error.main">
           ACACOU 2022
         </Typography>
-        {!belowLg && (
-          <CategoryMenu
-            handleClose={handleClose}
-            handleClick={handleClick}
-            anchorEl={anchorEl}
-            open={open}
-          />
-        )}
+        {!belowLg && <CategoryMenu />}
         {!belowLg && (
           <TextField
             variant="outlined"
@@ -157,11 +152,11 @@ export default function Header() {
             </IconButton>
           </Box>
           <Stack direction="row" gap="10px">
-            <Button variant="contained" color="white">
+            <Button variant="contained" color="white" onClick={() => router.push('/login')}>
               Login
             </Button>
-            <Button variant="contained" color="error">
-              Sign up
+            <Button variant="contained" color="error" onClick={() => router.push('/logup')}>
+              Logup
             </Button>
           </Stack>
         </Stack>
