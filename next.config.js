@@ -3,19 +3,25 @@ const webpack = require('webpack')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+// const dir = process.env.DIR || 'ACACOU'
+// const nextBuild = require('next/dist/build')
+// const withTM = require('next-transpile-modules')([])
 
 nextConfig = {
   // images: {
   //     domains: ['storage.googleapis.com'],
   // },
-  reactStrictMode: true,
-  experimental: {
-    esmExternals: false,
+  withTM: {
+    cleanDistDir: true,
+    reactStrictMode: true,
+    experimental: {
+      externalDir: true,
+    },
   },
-
   webpack: (config) => {
     config.resolve.extensions = ['.mjs', '.ts', '.tsx', '.json', '.js']
     config.plugins.push(new webpack.ProgressPlugin())
+    config.infrastructureLogging = { debug: /PackFileCache/ }
     return config
   },
 }

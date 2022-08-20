@@ -219,5 +219,10 @@ const Home: NextPageWithLayout = () => {
     </Box>
   )
 }
+export async function getStaticProps() {
+  return {
+    props: { title: 'ACACOU 2022' },
+  }
+}
 
 export default Home

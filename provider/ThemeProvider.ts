@@ -90,6 +90,16 @@ const theme = createTheme({
             },
           },
         },
+        {
+          props: { color: 'black' },
+          style: {
+            backgroundColor: '#1c1d1f',
+            color: '#fff',
+            '&:hover': {
+              backgroundColor: '#393b3f',
+            },
+          },
+        },
       ],
     },
     MuiTypography: {
@@ -243,6 +253,7 @@ declare module '@mui/material/TextField' {
 declare module '@mui/material/IconButton' {
   interface IconButtonPropsColorOverrides {
     blueGrey: true
+    black: true
   }
 }
 

@@ -1,5 +1,6 @@
 import { Email, Lock, Person } from '@mui/icons-material'
 import {
+  Box,
   Button,
   Card,
   CardContent,
@@ -14,7 +15,7 @@ import { blue, grey } from '@mui/material/colors'
 import Link from 'next/link'
 import image from 'public/images/lec1.jpg'
 
-export default function Logup() {
+export default function Login() {
   return (
     <Stack
       sx={{
@@ -24,8 +25,6 @@ export default function Logup() {
         backgroundSize: 'cover',
         backgroundColor: 'greyDefault.main',
       }}
-      alignItems="center"
-      justifyContent="center"
     >
       <Stack
         width="100%"
@@ -36,22 +35,9 @@ export default function Logup() {
       >
         <Card sx={{ width: { xs: '90%', sm: 470 } }}>
           <Typography p="20px 30px" fontWeight="bold" borderBottom={`1px solid ${grey[200]}`}>
-            Sign Up and Start Learning!
+            Login
           </Typography>
           <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '15px', p: '30px' }}>
-            <TextField
-              placeholder="Fullname"
-              color="info"
-              size="medium"
-              spellCheck="false"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Person />
-                  </InputAdornment>
-                ),
-              }}
-            />
             <TextField
               placeholder="Email"
               color="info"
@@ -78,20 +64,9 @@ export default function Logup() {
                 ),
               }}
             />
-            <FormControlLabel
-              color="info"
-              control={<Checkbox color="info" />}
-              sx={{ '& span': { fontSize: 14 } }}
-              label="Yes! I want to get the most out of OnEdu by receiving emails with exclusive deals, personal recommendations and learning tips!"
-              labelPlacement="end"
-            />
             <Button variant="contained" color="error" sx={{ height: 55, fontSize: '18px' }}>
-              Sign up
+              Login
             </Button>
-            <Typography fontSize="14px" sx={{ '& a': { color: blue[600] } }}>
-              By signing up, you agree to our <Link href="#">Terms of Use</Link> and{' '}
-              <Link href="#">Privacy Policy</Link>
-            </Typography>
 
             <Typography
               textAlign="center"
@@ -106,4 +81,10 @@ export default function Logup() {
       </Stack>
     </Stack>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: { title: 'Login - Acacou' },
+  }
 }

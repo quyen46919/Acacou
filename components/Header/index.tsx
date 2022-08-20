@@ -31,26 +31,16 @@ import { useState } from 'react'
 import CategoryDropdown from '../CategoryDropdown'
 import CategoryMenu from '../CategoryMenu'
 
-type Anchor = 'top' | 'left' | 'bottom' | 'right'
-
 export default function Header() {
   const router = useRouter()
   const theme = useTheme()
   const belowXl = useMediaQuery(theme.breakpoints.down('xl'))
   const belowMd = useMediaQuery(theme.breakpoints.down('md'))
-  const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
   const belowLg = useMediaQuery(theme.breakpoints.down('lg'))
 
   const [openLeftDrawer, setOpenLeftDrawer] = useState(false)
   const [openRightDrawer, setOpenRightDrawer] = useState(false)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
 
   const toggleDrawer =
     (open: boolean, anchor: string = 'left') =>
@@ -132,7 +122,7 @@ export default function Header() {
               pr="10px"
               borderRight="1px solid silver"
             >
-              <Button>For enterpise</Button>
+              <Button onClick={() => router.push('/logup/business')}>For enterpise</Button>
               <Button>Teach on OnEdu</Button>
             </Stack>
           ) : (

@@ -1,9 +1,24 @@
 import { courseCard } from '@/seedData'
-import { Box, useMediaQuery } from '@mui/material'
+import { Box, IconButton, useMediaQuery } from '@mui/material'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import CourseCard from '../CourseCard'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props
+  return (
+    <div className={className} style={{ ...style }} onClick={onClick}>
+      <IconButton
+        color="black"
+        sx={{ position: 'absolute', left: '-50%', top: '-50%', zIndex: 999999999 }}
+      >
+        <KeyboardArrowRightIcon />
+      </IconButton>
+    </div>
+  )
+}
 
 function SlickSlider() {
   const belowSM = useMediaQuery('max-width(600px)')
@@ -15,6 +30,7 @@ function SlickSlider() {
     slidesToShow: belowSM ? 1 : 5,
     slidesToScroll: 4,
     initialSlide: 0,
+    // nextArrow: <SampleNextArrow />,
     responsive: [
       {
         breakpoint: 1440,
@@ -40,13 +56,15 @@ function SlickSlider() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          dots: true,
         },
       },
       {
         breakpoint: 560,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
         },
       },
       {
@@ -55,6 +73,7 @@ function SlickSlider() {
           initialSlide: 1,
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: false,
         },
       },
     ],
@@ -63,13 +82,9 @@ function SlickSlider() {
   return (
     <Box
       sx={{
-        width: '96%',
+        width: '100%',
         height: 'fit-content',
         m: '0 auto',
-        boxSizing: 'border-box',
-        '& button.slick-arrow': {
-          display: 'none',
-        },
         '& .slick-track': {
           display: 'flex',
           alignItems: {
@@ -80,10 +95,13 @@ function SlickSlider() {
           pt: 2,
           pb: 2,
         },
+        overflow: 'hidden',
+        p: '10px 30px',
+        boxSizing: 'border-box',
       }}
     >
       <Slider {...settings}>
-        {courseCard.map((card, index) => (
+        {courseCard.map((card) => (
           <CourseCard key={card.id} card={card} />
         ))}
       </Slider>
