@@ -121,3 +121,9 @@ export default function BusinessLogup() {
     </Box>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: { title: 'Business Logup - Acacou' },
+  }
+}

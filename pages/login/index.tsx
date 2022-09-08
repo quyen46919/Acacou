@@ -1,11 +1,9 @@
-import { Email, Lock, Person } from '@mui/icons-material'
+import { Email, Lock } from '@mui/icons-material'
 import {
   Box,
   Button,
   Card,
   CardContent,
-  Checkbox,
-  FormControlLabel,
   InputAdornment,
   Stack,
   TextField,
@@ -13,7 +11,6 @@ import {
 } from '@mui/material'
 import { blue, grey } from '@mui/material/colors'
 import Link from 'next/link'
-import image from 'public/images/lec1.jpg'
 
 export default function Login() {
   return (
@@ -21,7 +18,7 @@ export default function Login() {
       sx={{
         width: '100%',
         height: '100vh',
-        backgroundImage: `url('${image.src}')`,
+        backgroundImage: `url('images/lec1.jpg')`,
         backgroundSize: 'cover',
         backgroundColor: 'greyDefault.main',
       }}

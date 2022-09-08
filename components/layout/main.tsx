@@ -1,4 +1,5 @@
 import { LayoutProps } from '@/models'
+import Footer from '../Footer'
 import Header from '../Header'
 
 export function MainLayout(props: LayoutProps) {
@@ -6,6 +7,7 @@ export function MainLayout(props: LayoutProps) {
     <div>
       <Header />
       {props.children}
+      <Footer/>
     </div>
   )
 }

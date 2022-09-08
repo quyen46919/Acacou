@@ -1,6 +1,3 @@
-import dynamic from 'next/dynamic'
-const CourseCard = dynamic(() => import('@/components/CourseCard'), { ssr: false })
-import Header from '@/components/Header'
 import { NextPageWithLayout } from '@/models/common'
 import { homepageContent, programmingLanguages } from '@/seedData'
 import { Search } from '@mui/icons-material'
@@ -15,11 +12,10 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import defaultImage from 'public/images/banner.jpg'
 import { useState } from 'react'
 import Image from 'next/image'
 import SlickSlider from '@/components/SlickSlider'
-import Footer from '@/components/Footer'
+import { MainLayout } from '@/components/layout'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -38,7 +34,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: '16px 0' }}>{children}</Box>}
+      {value === index && <Box sx={{ pt: '16px' }}>{children}</Box>}
     </div>
   )
 }
@@ -59,13 +55,12 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <Box>
-      <Header />
       <Stack
         justifyContent="center"
         sx={{
           width: '100%',
           height: 450,
-          backgroundImage: `url('${defaultImage.src}')`,
+          backgroundImage: `url('/images/banner.jpg')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
         }}
@@ -97,9 +92,14 @@ const Home: NextPageWithLayout = () => {
       </Stack>
 
       {/* TABS */}
-      <Box sx={{ width: '100%', p: { xs: '0 20px', sm: '0 40px' } }}>
+      <Box sx={{ width: '100%', boxSizing: 'border-box' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange} indicatorColor="secondary">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="secondary"
+            sx={{ p: '0 30px' }}
+          >
             <Tab label="Business" {...a11yProps(0)} />
             <Tab label="Design" {...a11yProps(1)} />
             <Tab label="Photographie" {...a11yProps(2)} />
@@ -214,11 +214,11 @@ const Home: NextPageWithLayout = () => {
         </Typography>
         <SlickSlider />
       </Box>
-
-      <Footer />
     </Box>
   )
 }
+
+Home.Layout = MainLayout
 export async function getStaticProps() {
   return {
     props: { title: 'ACACOU 2022' },

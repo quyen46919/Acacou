@@ -4,21 +4,21 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import CourseCard from '../CourseCard'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+// import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props
-  return (
-    <div className={className} style={{ ...style }} onClick={onClick}>
-      <IconButton
-        color="black"
-        sx={{ position: 'absolute', left: '-50%', top: '-50%', zIndex: 999999999 }}
-      >
-        <KeyboardArrowRightIcon />
-      </IconButton>
-    </div>
-  )
-}
+// function SampleNextArrow(props: any) {
+//   const { className, style, onClick } = props
+//   return (
+//     <div className={className} style={{ ...style }} onClick={onClick}>
+//       <IconButton
+//         color="black"
+//         sx={{ position: 'absolute', left: '-50%', top: '-50%', zIndex: 999999999 }}
+//       >
+//         <KeyboardArrowRightIcon />
+//       </IconButton>
+//     </div>
+//   )
+// }
 
 function SlickSlider() {
   const belowSM = useMediaQuery('max-width(600px)')
@@ -96,7 +96,7 @@ function SlickSlider() {
           pb: 2,
         },
         overflow: 'hidden',
-        p: '10px 30px',
+        p: '10px 24px',
         boxSizing: 'border-box',
       }}
     >

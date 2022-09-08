@@ -1,5 +1,5 @@
 import { InputAdornment } from '@mui/material'
-import { blue } from '@mui/material/colors'
+import { blue, orange } from '@mui/material/colors'
 import { createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
@@ -110,16 +110,17 @@ const theme = createTheme({
           // "Noto_Sans_JP, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;",
         },
         h3: {
-          fontSize: 16,
+          fontSize: 35,
+          fontWeight: 700,
         },
         h4: {
-          fontSize: 14,
+          fontSize: 25,
         },
         h5: {
-          fontSize: 12,
+          fontSize: 16,
         },
         h6: {
-          fontSize: 10,
+          fontSize: 14,
         },
       },
     },
@@ -176,6 +177,10 @@ const theme = createTheme({
               padding: '14px 14px 14px 0px',
             },
           },
+          '& .MuiSelect-select': {
+            backgroundColor: '#fff',
+            minWidth: 150,
+          },
         },
       },
     },
@@ -207,6 +212,15 @@ const theme = createTheme({
         },
       },
     },
+    // MuiRating: {
+    //   styleOverrides: {
+    //     root: {
+    //       '& span': {
+    //         color: '#f57c00',
+    //       },
+    //     },
+    //   },
+    // },
   },
 })
 

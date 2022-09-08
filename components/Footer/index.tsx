@@ -95,7 +95,6 @@ export default function Footer() {
               color="white"
               value={language}
               onChange={(e: any) => handleChange(e)}
-              sx={{ minWidth: 200 }}
             >
               <MenuItem value="english">English</MenuItem>
               <MenuItem value="vietnamese">Tiếng Việt</MenuItem>

@@ -82,7 +82,14 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
         )}
-        <Typography width={180} fontWeight={800} fontSize={24} color="error.main">
+        <Typography
+          width={180}
+          fontWeight={800}
+          fontSize={24}
+          color="error.main"
+          onClick={() => router.push('/')}
+          sx={{ cursor: 'pointer' }}
+        >
           ACACOU 2022
         </Typography>
         {!belowLg && <CategoryMenu />}
@@ -222,23 +229,6 @@ export default function Header() {
               ACACOU 2022
             </Typography>
           </ListItem>
-          {belowMd && (
-            <List>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Login />
-                </ListItemIcon>
-                Login
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Logout />
-                </ListItemIcon>
-                Logout
-              </ListItemButton>
-            </List>
-          )}
-          <Divider />
           <List>
             <ListItemButton>
               <ListItemIcon>
@@ -262,6 +252,23 @@ export default function Header() {
               For enterpise
             </ListItemButton>
           </List>
+          <Divider />
+          {belowMd && (
+            <List>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Login />
+                </ListItemIcon>
+                Login
+              </ListItemButton>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Logout />
+                </ListItemIcon>
+                Logout
+              </ListItemButton>
+            </List>
+          )}
         </Box>
       </Drawer>
     </Stack>

@@ -12,7 +12,6 @@ import {
 } from '@mui/material'
 import { blue, grey } from '@mui/material/colors'
 import Link from 'next/link'
-import image from 'public/images/lec1.jpg'
 
 export default function Logup() {
   return (
@@ -20,7 +19,7 @@ export default function Logup() {
       sx={{
         width: '100%',
         height: '100vh',
-        backgroundImage: `url('${image.src}')`,
+        backgroundImage: `url('/images/lec1.jpg')`,
         backgroundSize: 'cover',
         backgroundColor: 'greyDefault.main',
       }}
@@ -106,4 +105,10 @@ export default function Logup() {
       </Stack>
     </Stack>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: { title: 'Logup - Acacou' },
+  }
 }

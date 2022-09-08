@@ -2,10 +2,14 @@ export const courseCard = [
   {
     id: 1,
     image: '/images/thumb3.png',
-    name: 'Khóa học Frontend từ cơ bản đến nâng cao',
+    name: 'Khóa học Frontend từ cơ bản đến nâng cao cho người mới bắt đầu',
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 2,
@@ -14,6 +18,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 3,
@@ -22,6 +31,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 4,
@@ -30,6 +44,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 5,
@@ -38,6 +57,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 6,
@@ -46,6 +70,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 7,
@@ -54,6 +83,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 8,
@@ -62,6 +96,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 9,
@@ -70,6 +109,11 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
   {
     id: 10,
@@ -78,5 +122,10 @@ export const courseCard = [
     price: 40,
     salePrice: 10.99,
     authorName: 'Hiếu Hồ',
+
+    averageStar: 4.2,
+    studentCount: 12424,
+    totalHours: 12.5,
+    updatedAt: '3/2021',
   },
 ]
