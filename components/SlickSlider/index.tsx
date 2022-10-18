@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import CourseCard from '../CourseCard'
+import React from 'react'
 // import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
 // function SampleNextArrow(props: any) {

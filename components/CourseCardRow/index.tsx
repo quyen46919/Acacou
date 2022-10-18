@@ -2,6 +2,7 @@ import { People, Star } from '@mui/icons-material'
 import { Stack, Typography } from '@mui/material'
 import { grey, orange } from '@mui/material/colors'
 import Image from 'next/image'
+import React from 'react'
 
 interface CourseCardRowProps {
   image: string

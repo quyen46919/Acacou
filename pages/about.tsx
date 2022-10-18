@@ -2,6 +2,7 @@ import { useAuth } from '@/hooks'
 import { NextPageWithLayout } from '@/models'
 import { AdminLayout } from '@/components/layout'
 import { Box, Typography } from '@mui/material'
+import React from 'react'
 
 const AboutPage: NextPageWithLayout = () => {
   // const { profile } = useAuth()

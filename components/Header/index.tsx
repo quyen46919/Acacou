@@ -30,6 +30,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import CategoryDropdown from '../CategoryDropdown'
 import CategoryMenu from '../CategoryMenu'
+import React from 'react'
 
 export default function Header() {
   const router = useRouter()
