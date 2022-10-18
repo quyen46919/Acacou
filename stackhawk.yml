@@ -1,7 +1,9 @@
 # -- stackhawk configuration for Acacou --
 app:
-  applicationId: acfa6245-44ce-4202-9de2-3c85771e41d8 # (required)
+  applicationId: 17342982-ea51-47fc-b222-1d324f50b3ad # (required)
+  # -- The environment for the applicationId defined in the StackHawk platform. --
   env: Development # (required)
+  # -- The url of your application to scan --
   host: http://localhost:3000 # (required)
 hawk:
   failureThreshold: high
