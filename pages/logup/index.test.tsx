@@ -32,7 +32,6 @@ describe('account register form', () => {
   it('submit without value', async () => {
     const { findByTestId } = render(<Logup />)
     const button = await findByTestId('button')
-    const fullNameInput = await findByTestId('account-fullName')
 
     fireEvent.click(button)
     await new Promise((r: any) => setTimeout(r, 2000))
