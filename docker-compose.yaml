@@ -4,6 +4,6 @@ services:
     build: ./
     container_name: acacou
     ports:
-      - '3001:3001'
+      - '3000:3000'
     stdin_open: true
     tty: true
