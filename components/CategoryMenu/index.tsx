@@ -2,7 +2,7 @@ import { categoriesList } from '@/seedData'
 import { ArrowRight } from '@mui/icons-material'
 import { Button, Menu, MenuItem } from '@mui/material'
 import { grey } from '@mui/material/colors'
-import { MouseEvent, useState } from 'react'
+import React, { MouseEvent, useState } from 'react'
 interface CategoryMenuProps {
   open: boolean
   handleClick?: any

@@ -12,7 +12,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import SlickSlider from '@/components/SlickSlider'
 import { MainLayout } from '@/components/layout'
