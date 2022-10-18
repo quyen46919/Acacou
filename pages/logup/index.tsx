@@ -33,7 +33,7 @@ const messages = {
 }
 
 export default function Logup() {
-  const { register, formState, setError, handleSubmit, clearErrors } = useForm({
+  const { register, formState, handleSubmit } = useForm({
     defaultValues: {
       fullName: '',
       email: '',
