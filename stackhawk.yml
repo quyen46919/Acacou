@@ -1,6 +1,5 @@
 # -- stackhawk configuration for Acacou --
 app:
-  # -- An applicationId obtained from the StackHawk platform. --
   applicationId: 17342982-ea51-47fc-b222-1d324f50b3ad # (required)
   # -- The environment for the applicationId defined in the StackHawk platform. --
   env: Development # (required)
