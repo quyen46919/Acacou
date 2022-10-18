@@ -1,0 +1,7 @@
+# -- stackhawk configuration for Acacou --
+app:
+  applicationId: acfa6245-44ce-4202-9de2-3c85771e41d8 # (required)
+  env: Development # (required)
+  host: http://localhost:3000 # (required)
+hawk:
+  failureThreshold: high

@@ -27,3 +27,7 @@
 // }
 
 // module.exports = withPlugins([withBundleAnalyzer], nextConfig)
+
+// module.exports = {
+
+// }
