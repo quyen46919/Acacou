@@ -1,0 +1,9 @@
+version: '1.0.0'
+services:
+  app:
+    build: ./
+    container_name: acacou
+    ports:
+      - '3001:3001'
+    stdin_open: true
+    tty: true
